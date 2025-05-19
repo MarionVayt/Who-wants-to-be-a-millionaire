@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vusat\\Desktop\\Курсова\\term-project-MarionVayt\\MillionaireGame\\MillionaireGame\\MillionaireGame.csproj",
+      "projectUniqueName": "C:\\Users\\vusat\\Desktop\\Who-wants-to-be-a-millionaire\\MillionaireGame\\MillionaireGame\\MillionaireGame.csproj",
       "projectName": "MillionaireGame",
-      "projectPath": "C:\\Users\\vusat\\Desktop\\Курсова\\term-project-MarionVayt\\MillionaireGame\\MillionaireGame\\MillionaireGame.csproj",
+      "projectPath": "C:\\Users\\vusat\\Desktop\\Who-wants-to-be-a-millionaire\\MillionaireGame\\MillionaireGame\\MillionaireGame.csproj",
       "packagesPath": "C:\\Users\\vusat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vusat\\Desktop\\Курсова\\term-project-MarionVayt\\MillionaireGame\\MillionaireGame\\obj\\",
+      "outputPath": "C:\\Users\\vusat\\Desktop\\Who-wants-to-be-a-millionaire\\MillionaireGame\\MillionaireGame\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
