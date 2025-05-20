@@ -12,7 +12,7 @@ class Program
         while (playAgain)
         {
             Console.Clear();
-            Console.WriteLine("Ласкаво просимо до гри 'Хто хоче стати мільйонером'!");
+            Logo.ShowLogo();
 
             string playerName = Utils.GetValidUsername();
             Console.WriteLine($"Вітаю, {playerName}! Почнемо гру.");

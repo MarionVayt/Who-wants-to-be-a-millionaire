@@ -15,8 +15,29 @@ static class RecordManager
         Console.WriteLine("\n--- Таблиця рекордів ---");
         if (File.Exists(recordFile))
         {
-            foreach (var line in File.ReadAllLines(recordFile))
-                Console.WriteLine(line);
+            List<string> records = new List<string>();
+            using var reader = new StreamReader(recordFile);
+            {
+                string record;
+                while ((record = reader.ReadLine()) != null)
+                    records.Add(record);
+            }
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("+------------+----------+----------------------+");
+            Console.WriteLine("| Гравець    | Рахунок  | Дата                 |");
+            Console.WriteLine("+------------+----------+----------------------+");
+            foreach (string line in records)
+            {
+                string[] parts = line.Replace("Гравець: ", "").Replace("Рахунок: ", "").Replace("Дата: ", "").Split(',');
+                if (parts.Length == 3)
+                {
+                    Console.WriteLine($"| {parts[0].Trim(),-10} | {parts[1].Trim(),-8} | {parts[2].Trim(),-20} |");
+                }
+            }
+            Console.WriteLine("+------------+----------+----------------------+");
+            Console.ResetColor();
+
+
         }
         else Console.WriteLine("Файл рекордів ще не створено.");
     }

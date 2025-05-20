@@ -7,9 +7,15 @@ static class PlayManager
     {
         while (true)
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"\n{question.Text}");
+            Console.ResetColor();
             for (int i = 0; i < 4; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine($"{i + 1}. {question.Answers[i]}");
+                Console.ResetColor();
+            }
 
             Console.Write("\nВведіть 'hint' або номер відповіді (1-4): ");
             string input = Console.ReadLine()?.Trim().ToLower();
