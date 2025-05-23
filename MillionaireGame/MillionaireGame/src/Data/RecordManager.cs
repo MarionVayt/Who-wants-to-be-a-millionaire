@@ -14,7 +14,9 @@ static class RecordManager
 
     public static void ShowRecords(string recordFile)
     {
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine("\n--- Таблиця рекордів ---");
+        Console.ResetColor();
         if (File.Exists(recordFile))
         {
             List<string> records = new List<string>();

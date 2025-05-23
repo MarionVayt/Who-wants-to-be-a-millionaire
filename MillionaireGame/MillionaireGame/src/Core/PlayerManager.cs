@@ -21,7 +21,7 @@ static class PlayManager
             Console.Write("\nВведіть 'hint' або номер відповіді (1-4): ");
             Console.ResetColor();
             string input = Console.ReadLine()?.Trim().ToLower();
-
+            
             if (input == "hint")
             {
                 HintSystem.ShowHintMenu(question, hints);
@@ -31,7 +31,7 @@ static class PlayManager
                 if (question.CorrectAnswer == choice)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Правильно!");
+                    Console.WriteLine("✅ Правильно!");
                     Console.ResetColor();
                     score += 10;
                     return true;
@@ -39,7 +39,7 @@ static class PlayManager
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Неправильно! Гра закінчена.");
+                    Console.WriteLine("❌ Неправильно! Гра закінчена.");
                     Console.ResetColor();   
                     return false;
                 }

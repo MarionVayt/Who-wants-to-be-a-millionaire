@@ -50,6 +50,20 @@ class Program
                         playAgain = false;
                 }
             }
+            if (!gameover)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\n🎉 Вітаємо, ви успішно пройшли всі рівні та виграли гру!");
+                Console.WriteLine($"Ваш фінальний рахунок: {score} балів.");
+                Console.ResetColor();
+
+                RecordManager.SaveRecord(playerName, score, recordFile);
+
+                if (Utils.AskForRestart(recordFile))
+                    playAgain = true;
+                else
+                    playAgain = false;
+            }
         }
 
         Logo.FinishLogo();
