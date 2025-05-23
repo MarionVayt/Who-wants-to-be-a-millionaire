@@ -13,6 +13,7 @@ class Program
 
         while (playAgain)
         {
+            bool gameover = false;
             Console.Clear();
             Logo.StartLogo();
 
@@ -24,7 +25,7 @@ class Program
 
             int score = 0;
 
-            for (int i = 0; i < questionFiles.Length && playAgain; i++)
+            for (int i = 0; i < questionFiles.Length && !gameover; i++)
             {
                 List<Question> questions = QuestionLoader.LoadQuestions(questionFiles[i]);
                 List<string> hints = new List<string> { "50/50", "Допомога друга", "Допомога залу" };
@@ -36,17 +37,18 @@ class Program
                     if (!PlayManager.PlayQuestion(question, hints, ref score))
                     {
                         RecordManager.SaveRecord(playerName, score, recordFile);
-                        playAgain = Utils.AskForRestart(recordFile);
+                        gameover = true;
                         break;
                     }
                 }
-            }
 
-            if (playAgain)
-            {
-                Console.WriteLine($"\n--- Вітаємо, {playerName}! Ви перемогли! Ваш рахунок: {score} ---");
-                RecordManager.SaveRecord(playerName, score, recordFile);
-                playAgain = Utils.AskForRestart(recordFile);
+                if (gameover)
+                {
+                    if (Utils.AskForRestart(recordFile))
+                        playAgain = true;
+                    else
+                        playAgain = false;
+                }
             }
         }
 
