@@ -5,6 +5,8 @@ class Program
 {
     static void Main()
     {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.InputEncoding = System.Text.Encoding.UTF8;
         string recordFile = "Records.txt";
         string[] questionFiles = { "Easy.txt", "Medium.txt", "Hard.txt" };
         bool playAgain = true;
@@ -12,10 +14,13 @@ class Program
         while (playAgain)
         {
             Console.Clear();
-            Logo.ShowLogo();
+            Logo.StartLogo();
 
             string playerName = Utils.GetValidUsername();
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine($"Вітаю, {playerName}! Почнемо гру.");
+            Console.ResetColor();
 
             int score = 0;
 
@@ -24,7 +29,7 @@ class Program
                 List<Question> questions = QuestionLoader.LoadQuestions(questionFiles[i]);
                 List<string> hints = new List<string> { "50/50", "Допомога друга", "Допомога залу" };
 
-                Console.WriteLine($"\n--- {Utils.GetDifficultyLevel(i)} рівень ---");
+                Utils.GetDifficultyLevel(i);
 
                 foreach (var question in questions)
                 {
@@ -45,6 +50,6 @@ class Program
             }
         }
 
-        Console.WriteLine("\n--- Дякуємо за гру! До побачення! ---");
+        Logo.FinishLogo();
     }
 }

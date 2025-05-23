@@ -7,7 +7,9 @@ static class RecordManager
     {
         using var writer = new StreamWriter(recordFile, true);
         writer.WriteLine($"Гравець: {playerName}, Рахунок: {score}, Дата: {DateTime.Now}");
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine("Рекорд збережено.");
+        Console.ResetColor();
     }
 
     public static void ShowRecords(string recordFile)

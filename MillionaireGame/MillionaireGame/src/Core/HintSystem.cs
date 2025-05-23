@@ -7,21 +7,32 @@ static class HintSystem
     {
         if (hints.Count == 0)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Всі підказки використано.");
+            Console.ResetColor();
             return;
         }
 
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("\nДоступні підказки:");
         for (int i = 0; i < hints.Count; i++)
             Console.WriteLine($"{i + 1}. {hints[i]}");
+        Console.ResetColor();
 
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.Write("Виберіть підказку: ");
+        Console.ResetColor();
         if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 1 && choice <= hints.Count)
         {
             UseHint(hints[choice - 1], question);
             hints.RemoveAt(choice - 1);
         }
-        else Console.WriteLine("Некоректний вибір.");
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Некоректний вибір.");
+            Console.ResetColor();
+        }
     }
 
     static void UseHint(string hint, Question question)
