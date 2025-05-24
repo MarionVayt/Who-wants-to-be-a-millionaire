@@ -20,6 +20,24 @@ static class Utils
             Console.ResetColor();
         }
     }
+    
+    public static int GetValidCategoryChoice(int maxOption)
+    {
+        while (true)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.Write("Виберіть категорію (1-" + maxOption + "): ");
+            Console.ResetColor();
+            string input = Console.ReadLine()?.Trim();
+
+            if (int.TryParse(input, out int choice) && choice >= 1 && choice <= maxOption)
+                return choice;
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ Некоректний ввід. Введіть число від 1 до {maxOption}.");
+            Console.ResetColor();
+        }
+    }
 
     public static bool AskForRestart(string recordFile)
     {
@@ -43,29 +61,6 @@ static class Utils
                 Console.WriteLine("Введіть 'y', 'r' або 'n'.");
                 Console.ResetColor();
             }
-        }
-    }
-
-    public static void GetDifficultyLevel(int level)
-    {
-        switch (level)
-        {
-            case 0:
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Легкий рівень");
-                break;
-            case 1:
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Середній рівень");
-                break;
-            case 2:
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Складний рівень");
-                break;
-            default:
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("Невідомий");
-                break;
         }
     }
 

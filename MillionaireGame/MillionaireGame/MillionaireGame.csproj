@@ -8,27 +8,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Update="Level\Hard.txt">
+      <None Update="Questions\Math.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Records.txt">
+      <None Update="Questions\Nature.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Easy.txt">
+      <None Update="Questions\Science.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Medium.txt">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="level\Easy.txt">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="level\Medium.txt">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Include="bin\Debug\net8.0\Hard.txt">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
+      <None Include="bin\Debug\net8.0\Data\Records.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="bin\Debug\net8.0\" />
     </ItemGroup>
 
 </Project>

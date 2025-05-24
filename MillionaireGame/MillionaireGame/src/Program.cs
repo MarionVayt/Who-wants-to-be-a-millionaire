@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 class Program
 {
@@ -7,8 +8,8 @@ class Program
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.InputEncoding = System.Text.Encoding.UTF8;
-        string recordFile = "Records.txt";
-        string[] questionFiles = { "Easy.txt", "Medium.txt", "Hard.txt" };
+        string recordFile = "Data/Records.txt";
+        string[] questionFiles = Directory.GetFiles("Questions", "*.txt");
         bool playAgain = true;
 
         while (playAgain)
@@ -21,16 +22,26 @@ class Program
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine($"Вітаю, {playerName}! Почнемо гру.");
+            PrintCategory.Categories();
+            int choose = Utils.GetValidCategoryChoice(questionFiles.Length);
+            var categorychoosed = new Dictionary<int, string>();
+            for (int i = 0; i < questionFiles.Length; i++)
+            {
+                string filePath = questionFiles[i];
+                categorychoosed[i + 1] = filePath;
+            }
+            string selectedFile = categorychoosed[choose];
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            PrintCategory.Category(selectedFile);
             Console.ResetColor();
 
             int score = 0;
 
             for (int i = 0; i < questionFiles.Length && !gameover; i++)
             {
-                List<Question> questions = QuestionLoader.LoadQuestions(questionFiles[i]);
+                List<Question> questions = QuestionLoader.LoadQuestions(selectedFile).Skip(1).ToList();
                 List<string> hints = new List<string> { "50/50", "Допомога друга", "Допомога залу" };
-
-                Utils.GetDifficultyLevel(i);
+                
 
                 foreach (var question in questions)
                 {

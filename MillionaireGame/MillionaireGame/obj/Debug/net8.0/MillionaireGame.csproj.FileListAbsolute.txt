@@ -1,8 +1,7 @@
-C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\bin\Debug\net8.0\level\Easy.txt
-C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\bin\Debug\net8.0\level\Hard.txt
-C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\bin\Debug\net8.0\level\Medium.txt
+C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\bin\Debug\net8.0\Questions\Math.txt
+C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\bin\Debug\net8.0\Questions\Nature.txt
+C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\bin\Debug\net8.0\Questions\Science.txt
 C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\bin\Debug\net8.0\MillionaireGame.exe
-C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\bin\Debug\net8.0\bin\Debug\net8.0\Hard.txt
 C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\obj\Debug\net8.0\MillionaireGame.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\obj\Debug\net8.0\MillionaireGame.AssemblyInfoInputs.cache
 C:\Users\vusat\Desktop\Who-wants-to-be-a-millionaire\MillionaireGame\MillionaireGame\obj\Debug\net8.0\MillionaireGame.AssemblyInfo.cs
