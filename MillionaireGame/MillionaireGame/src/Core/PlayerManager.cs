@@ -31,9 +31,9 @@ static class PlayManager
                 if (question.CorrectAnswer == choice)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("✅ Правильно!");
+                    Console.WriteLine($"✅ Правильно! + {question.Point}$ до вашого балансу.");
                     Console.ResetColor();
-                    score += 10;
+                    score += question.Point;
                     return true;
                 }
                 else

@@ -57,13 +57,48 @@ static class Utils
             else if (response == "n") return false;
             else
             {
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("Введіть 'y', 'r' або 'n'.");
                 Console.ResetColor();
             }
+            Console.ResetColor();
         }
     }
 
+    public static bool AskForContinueCategory(ref int score)
+    {
+        while (true)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.Write($"Ваш баланс: {score}$. Чи бажаєте продовжити гру? (y/n): ");
+            string response = Console.ReadLine()?.Trim().ToLower();
+            if(response == "y") return true;
+            else if(response == "n") return false;
+            else
+            {
+                Console.WriteLine("Введіть 'y', 'r' або 'n'.");
+                Console.ResetColor();
+            }
+            Console.ResetColor();
+        }
+    }
+    
+    public static bool AskForContinueNextCategory(ref int score)
+    {
+        while (true)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write($"🎉 Вітаю, Ви пройшли категорію! Ваш баланс: {score}$. Чи бажаєте продовжити гру? (y/n): ");
+            string response = Console.ReadLine()?.Trim().ToLower();
+            if(response == "y") return true;
+            else if(response == "n") return false;
+            else
+            {
+                Console.WriteLine("Введіть 'y', 'r' або 'n'.");
+                Console.ResetColor();
+            }
+            Console.ResetColor();
+        }
+    }
     public static string GetRandomWrongAnswer(Question question)
     {
         Random rand = new Random();
