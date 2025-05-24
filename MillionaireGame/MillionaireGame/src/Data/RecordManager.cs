@@ -28,14 +28,14 @@ static class RecordManager
             }
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("+------------+----------+----------------------+");
-            Console.WriteLine("| Гравець    | Рахунок  | Дата                 |");
+            Console.WriteLine("| Гравець    | Баланс  | Дата                 |");
             Console.WriteLine("+------------+----------+----------------------+");
             foreach (string line in records)
             {
-                string[] parts = line.Replace("Гравець: ", "").Replace("Рахунок: ", "").Replace("Дата: ", "").Split(',');
+                string[] parts = line.Replace("Гравець: ", "").Replace("Баланс: ", "").Replace("Дата: ", "").Split(',');
                 if (parts.Length == 3)
                 {
-                    Console.WriteLine($"| {parts[0].Trim(),-10} | {parts[1].Trim(),-8} | {parts[2].Trim(),-20} |");
+                    Console.WriteLine($"| {parts[0].Trim(),-10} | {parts[1].Trim(),-8}$ | {parts[2].Trim(),-20} |");
                 }
             }
             Console.WriteLine("+------------+----------+----------------------+");
