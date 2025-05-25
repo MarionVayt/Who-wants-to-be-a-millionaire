@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
+﻿/// \file Logo.cs
+/// \brief Displays start and finish logos for the game.
 
-
+/// <summary>
+/// Static class responsible for showing stylized console logos
+/// at the start and end of the game session.
+/// </summary>
 public class Logo
 {
+    /// <summary>
+    /// Displays the start logo with a welcome message.
+    /// </summary>
     public static void StartLogo()
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -32,6 +37,10 @@ public class Logo
         Console.ResetColor();
     }
 
+    /// <summary>
+    /// Displays the finish logo with a thank you message and
+    /// pauses for 10 seconds before closing.
+    /// </summary>
     public static void FinishLogo()
     {
         string[] lines = {
@@ -53,6 +62,6 @@ public class Logo
         }
         Console.WriteLine("+----------------------------------------+");
         Console.ResetColor();
-        Thread.Sleep(30000);
+        Thread.Sleep(10000);
     }
- }
+}
