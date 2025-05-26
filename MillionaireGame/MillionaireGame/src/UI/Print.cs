@@ -86,6 +86,13 @@ public class Print
         Console.ResetColor();
     }
 
+    public static void ErrorName()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Некоректне ім'я!");
+        Console.ResetColor();
+    }
+
     public static void Answer()
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -114,11 +121,16 @@ public class Print
         Console.ResetColor();
     }
 
-    public static void Category()
+    public static void Category(List<string> availablecategories)
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine("Категорії питань:");
         Console.ResetColor();
+        for (int i = 0; i < availablecategories.Count; i++)
+        {
+            string categoryName = File.ReadLines(availablecategories[i]).FirstOrDefault()?.Trim();
+            Console.WriteLine($"{i + 1}. {categoryName}");
+        }
     }
 
     public static void CategoryChoose(string category)
@@ -140,5 +152,49 @@ public class Print
             Console.WriteLine($"{i + 1}. {question.Answers[i]}");
             Console.ResetColor();
         }
+    }
+
+    public static void HintHalf(string hint, Question question)
+    {
+        Console.WriteLine($"1. {question.Answers[question.CorrectAnswer - 1]}   2. {Utils.GetRandomWrongAnswer(question)}");
+    }
+
+    public static void HintHelp(string hint, Question question)
+    {
+        Console.WriteLine($"Порада: {question.Answers[question.CorrectAnswer - 1]}");
+    }
+
+    public static void HintShow(List<string> hint)
+    {
+        for (int i = 0; i < hint.Count; i++)
+            Console.WriteLine($"{i + 1}. {hint[i]}");
+    }
+
+    public static void CategoryChoice(int maxOption)
+    {
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.Write("Виберіть категорію (1-" + maxOption + "): ");
+        Console.ResetColor();
+    }
+    
+    public static void AskForRestart()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.Write("Зіграти ще раз, переглянути рекорди чи вийти? (y/r/n): ");
+        Console.ResetColor();
+    }
+
+    public static void AskForContinueCategory(ref int score)
+    {
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.Write($"Ваш баланс: {score}$. Чи бажаєте продовжити гру? (y/n): ");
+        Console.ResetColor();
+    }
+
+    public static void AskForContinueNextCategory(ref int score)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write($"🎉 Вітаю, Ви пройшли категорію! Ваш баланс: {score}$. Чи бажаєте продовжити гру? (y/n): ");
+        Console.ResetColor();
     }
 }

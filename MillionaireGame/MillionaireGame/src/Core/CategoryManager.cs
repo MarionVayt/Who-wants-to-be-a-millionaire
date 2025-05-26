@@ -28,12 +28,7 @@ public class CategoryManager
     /// </summary>
     public void ShowCategories()
     {
-        Print.Category();
-        for (int i = 0; i < availablecategories.Count; i++)
-        {
-            string categoryName = File.ReadLines(availablecategories[i]).FirstOrDefault()?.Trim();
-            Console.WriteLine($"{i + 1}. {categoryName}");
-        }
+        Print.Category(availablecategories);
     }
 
     /// <summary>

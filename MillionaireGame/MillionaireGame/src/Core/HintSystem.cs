@@ -22,8 +22,7 @@ static class HintSystem
         }
 
         Print.HintNotUsed();
-        for (int i = 0; i < hints.Count; i++)
-            Console.WriteLine($"{i + 1}. {hints[i]}");
+        Print.HintShow(hints);
 
         Print.HintChoose();
 
@@ -48,11 +47,13 @@ static class HintSystem
         switch (hint)
         {
             case "50/50":
-                Console.WriteLine($"1. {question.Answers[question.CorrectAnswer - 1]}   2. {Utils.GetRandomWrongAnswer(question)}");
+                Print.HintHalf(hint, question);;
                 break;
             case "Допомога друга":
+                Print.HintHelp(hint, question);
+                break;
             case "Допомога залу":
-                Console.WriteLine($"Порада: {question.Answers[question.CorrectAnswer - 1]}");
+                Print.HintHelp(hint, question);
                 break;
         }
     }

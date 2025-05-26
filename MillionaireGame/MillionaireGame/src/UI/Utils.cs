@@ -26,9 +26,7 @@ static class Utils
             if (!string.IsNullOrWhiteSpace(input) && Regex.IsMatch(input, @"^[a-zA-Z\s]+$"))
                 return input;
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Некоректне ім'я!");
-            Console.ResetColor();
+            Print.ErrorName();
         }
     }
 
@@ -42,17 +40,13 @@ static class Utils
     {
         while (true)
         {
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.Write("Виберіть категорію (1-" + maxOption + "): ");
-            Console.ResetColor();
+            Print.CategoryChoice(maxOption);
             string input = Console.ReadLine()?.Trim();
 
             if (int.TryParse(input, out int choice) && choice >= 1 && choice <= maxOption)
                 return choice;
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"❌ Некоректний ввід. Введіть число від 1 до {maxOption}.");
-            Console.ResetColor();
+            Print.Error();
         }
     }
 
@@ -65,9 +59,7 @@ static class Utils
     {
         while (true)
         {
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.Write("Зіграти ще раз, переглянути рекорди чи вийти? (y/r/n): ");
-            Console.ResetColor();
+            Print.AskForRestart();
             string response = Console.ReadLine()?.Trim().ToLower();
 
             if (response == "y") return true;
@@ -79,8 +71,7 @@ static class Utils
             else if (response == "n") return false;
             else
             {
-                Console.WriteLine("Введіть 'y', 'r' або 'n'.");
-                Console.ResetColor();
+                Print.Error();
             }
             Console.ResetColor();
         }
@@ -95,17 +86,14 @@ static class Utils
     {
         while (true)
         {
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.Write($"Ваш баланс: {score}$. Чи бажаєте продовжити гру? (y/n): ");
+            Print.AskForContinueCategory(ref score);
             string response = Console.ReadLine()?.Trim().ToLower();
             if(response == "y") return true;
             else if(response == "n") return false;
             else
             {
-                Console.WriteLine("Введіть 'y', 'r' або 'n'.");
-                Console.ResetColor();
+                Print.Error();
             }
-            Console.ResetColor();
         }
     }
 
@@ -118,17 +106,15 @@ static class Utils
     {
         while (true)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write($"🎉 Вітаю, Ви пройшли категорію! Ваш баланс: {score}$. Чи бажаєте продовжити гру? (y/n): ");
+            Print.AskForContinueNextCategory(ref score);
             string response = Console.ReadLine()?.Trim().ToLower();
             if(response == "y") return true;
             else if(response == "n") return false;
             else
             {
-                Console.WriteLine("Введіть 'y', 'r' або 'n'.");
-                Console.ResetColor();
+                Print.Error();
             }
-            Console.ResetColor();
+            
         }
     }
 
