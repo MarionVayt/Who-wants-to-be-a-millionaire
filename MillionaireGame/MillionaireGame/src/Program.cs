@@ -27,7 +27,7 @@ class Program
         while (playAgain)
         {
             Console.Clear();
-            Logo.StartLogo(); // Display game logo
+            Print.StartLogo(); // Display game logo
 
             // Get a valid player name
             string playerName = Utils.GetValidUsername();
@@ -112,6 +112,6 @@ class Program
         }
 
         // Display closing logo
-        Logo.FinishLogo();
+        Print.FinishLogo();
     }
 }

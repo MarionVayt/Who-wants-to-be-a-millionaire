@@ -17,21 +17,15 @@ static class HintSystem
     {
         if (hints.Count == 0)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Всі підказки використано.");
-            Console.ResetColor();
+            Print.HintUsed();
             return;
         }
 
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("\nДоступні підказки:");
+        Print.HintNotUsed();
         for (int i = 0; i < hints.Count; i++)
             Console.WriteLine($"{i + 1}. {hints[i]}");
-        Console.ResetColor();
 
-        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        Console.Write("Виберіть підказку: ");
-        Console.ResetColor();
+        Print.HintChoose();
 
         if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 1 && choice <= hints.Count)
         {
@@ -40,9 +34,7 @@ static class HintSystem
         }
         else
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Некоректний вибір.");
-            Console.ResetColor();
+            Print.Error();
         }
     }
 

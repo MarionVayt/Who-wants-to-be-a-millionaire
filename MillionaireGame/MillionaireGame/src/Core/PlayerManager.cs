@@ -18,20 +18,9 @@ static class PlayManager
     {
         while (true)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"\n{question.Text}");
-            Console.ResetColor();
+            Print.QuestionAndAnswers(question);
 
-            for (int i = 0; i < 4; i++)
-            {
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine($"{i + 1}. {question.Answers[i]}");
-                Console.ResetColor();
-            }
-
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.Write("\nВведіть 'hint' або номер відповіді (1-4): ");
-            Console.ResetColor();
+            Print.Answer();
 
             string input = Console.ReadLine()?.Trim().ToLower();
             
@@ -43,23 +32,19 @@ static class PlayManager
             {
                 if (question.CorrectAnswer == choice)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"✅ Правильно! + {question.Point}$ до вашого балансу.");
-                    Console.ResetColor();
+                    Print.True(question);
                     score += question.Point;
                     return true;
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("❌ Неправильно! Гра закінчена.");
-                    Console.ResetColor();   
+                    Print.False(); 
                     return false;
                 }
             }
             else
             {
-                Console.WriteLine("Некоректний ввід.");
+                Print.Error();
             }
         }
     }

@@ -5,7 +5,7 @@
 /// Represents a single quiz question, including the question text,
 /// multiple choice answers, the correct answer index, and the point value.
 /// </summary>
-class Question
+public class Question
 {
     /// <summary>
     /// Gets the question text.

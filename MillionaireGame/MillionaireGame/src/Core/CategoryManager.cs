@@ -28,14 +28,12 @@ public class CategoryManager
     /// </summary>
     public void ShowCategories()
     {
-        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        Console.WriteLine("Категорії питань:");
+        Print.Category();
         for (int i = 0; i < availablecategories.Count; i++)
         {
             string categoryName = File.ReadLines(availablecategories[i]).FirstOrDefault()?.Trim();
             Console.WriteLine($"{i + 1}. {categoryName}");
         }
-        Console.ResetColor();
     }
 
     /// <summary>
@@ -66,9 +64,7 @@ public class CategoryManager
         if (File.Exists(filePath))
         {
             string categoryName = File.ReadLines(filePath).FirstOrDefault();
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine($"Ви вибрали: {categoryName}");
-            Console.ResetColor();
+            Print.CategoryChoose(categoryName);
         }
     }
 
